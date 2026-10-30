@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Syne", sans-serif;
+  --font-body: "Figtree", sans-serif;
+
+  --color-ink: #1a2332;
+  --color-muted: #5c6b7a;
+  --color-fog: #e6edf2;
+  --color-mist: #f4f7f9;
+  --color-surface: #ffffff;
+  --color-line: #c8d4de;
+  --color-accent: #0c6e66;
+  --color-accent-deep: #09554f;
+  --color-danger: #b84343;
+  --color-danger-deep: #943636;
+  --color-ok: #2a7a55;
+  --color-ok-soft: #e4f3eb;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background-color: var(--color-fog);
+  }
+
+  body {
+    min-height: 100dvh;
+    margin: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 10% -10%, #c5ddd8 0%, transparent 55%),
+      radial-gradient(ellipse 60% 40% at 100% 0%, #d5e0ea 0%, transparent 50%),
+      linear-gradient(165deg, var(--color-mist) 0%, var(--color-fog) 45%, #dbe4eb 100%);
+    background-attachment: fixed;
+  }
+
+  #app {
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-accent) 28%, white);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.45s ease-out both;
+}
+
+.animate-panel-in {
+  animation: panel-in 0.35s ease-out both;
+}
+
+.animate-toast-in {
+  animation: toast-in 0.3s ease-out both;
+}
